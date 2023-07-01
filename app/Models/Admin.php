@@ -10,12 +10,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
     use HasFactory;
+
     /**
      * モデルに関連付けるテーブル
      *
      * @var string
      */
-    protected $table = 'admins';
+    protected $table = 'admin';
 
     /**
      * The attributes that are mass assignable.

@@ -9,6 +9,7 @@ use App\Http\Controllers\Owner\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Owner\Auth\RegisteredUserController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use App\Http\Controllers\Owner\ShopController;
+use App\Http\Controllers\Owner\ImageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,8 +32,11 @@ Route::prefix('shops')->
     middleware('auth:owners')->group(function(){
         Route::get('index', [ShopController::class, 'index'])->name('shops.index');
         Route::get('edit/{shop}', [ShopController::class, 'edit'])->name('shops.edit');
-        Route::post('update/{owner}', [ShopController::class, 'update'])->name('shops.update');
+        Route::post('update/{shop}', [ShopController::class, 'update'])->name('shops.update');
 });
+
+Route::resource('images', ImageController::class)
+->middleware('auth:owners')->except(['show']);
 
 Route::get('/dashboard', function () {
     return view('owner.dashboard');

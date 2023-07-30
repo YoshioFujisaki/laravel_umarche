@@ -1,8 +1,8 @@
 @php
-if ($type === 'shops') {
+if ($type === 'shops'){
     $path = 'storage/shops/';
 }
-if ($type === 'products') {
+if ($type === 'products'){
     $path = 'storage/products/';
 }
 

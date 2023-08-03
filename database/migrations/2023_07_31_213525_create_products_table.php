@@ -35,7 +35,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('image3')
             ->nullable()
             ->constrained('images');
-            $table->foreignId('image4s')
+            $table->foreignId('image4')
             ->nullable()
             ->constrained('images');
             $table->timestamps();

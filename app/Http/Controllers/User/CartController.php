@@ -58,6 +58,7 @@ class CartController extends Controller
     {
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
+        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
 
         $lineItems = [];
         foreach ($products as $product) {
@@ -67,11 +68,17 @@ class CartController extends Controller
             if($product->pivot->quantity > $quantity){
                 return redirect()->route('user.cart.index');
             } else {
-                $lineItem = [
+                $stripe_products = $stripe->products->create([
                     'name' => $product->name,
-                    'desctrition' => $product->description,
-                    'amount' => $product->price,
+                    'description' => $product->information,
+                ]);
+                $stripe_price = $stripe->prices->create([
+                    'product' => $stripe_products,
+                    'unit_amount' => $product->price,
                     'currency' => 'jpy',
+                ]);
+                $lineItem = [
+                    'price' => $stripe_price,
                     'quantity' => $product->pivot->quantity,
                 ];
                 array_push($lineItems, $lineItem);
@@ -87,7 +94,7 @@ class CartController extends Controller
             ]);
         }
 
-        dd('test');
+        // dd('test');
 
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 

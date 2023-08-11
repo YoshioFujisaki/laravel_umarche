@@ -40,6 +40,7 @@ class ShopController extends Controller
         // phpinfo();
         // $ownerId = Auth::id();
         $shops = Shop::where('owner_id', Auth::id())->get();
+        // dd($shops);
 
         return view(
             'owner.shops.index',
@@ -82,6 +83,6 @@ class ShopController extends Controller
         ->with([
             'message' => '店舗情報を更新しました。',
             'status' => 'info'
-        ]);;
+        ]);
     }
 }

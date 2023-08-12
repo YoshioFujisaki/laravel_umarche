@@ -921,6 +921,10 @@ select{
   margin-left: auto;
   margin-right: auto;
 }
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -947,6 +951,9 @@ select{
 }
 .mb-12{
   margin-bottom: 3rem;
+}
+.mb-2{
+  margin-bottom: 0.5rem;
 }
 .mb-4{
   margin-bottom: 1rem;
@@ -977,6 +984,9 @@ select{
 }
 .mr-3{
   margin-right: 0.75rem;
+}
+.mr-4{
+  margin-right: 1rem;
 }
 .mt-1{
   margin-top: 0.25rem;
@@ -1176,6 +1186,11 @@ select{
 .justify-around{
   justify-content: space-around;
 }
+.space-x-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1257,6 +1272,10 @@ select{
 .border-gray-400{
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+.border-gray-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 .border-indigo-400{
   --tw-border-opacity: 1;
@@ -1921,6 +1940,9 @@ select{
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
+  .md\:ml-2{
+    margin-left: 0.5rem;
+  }
   .md\:flex{
     display: flex;
   }
@@ -1930,11 +1952,23 @@ select{
   .md\:w-1\/2{
     width: 50%;
   }
+  .md\:w-2\/12{
+    width: 16.666667%;
+  }
   .md\:w-2\/3{
     width: 66.666667%;
   }
+  .md\:w-3\/12{
+    width: 25%;
+  }
+  .md\:w-4\/12{
+    width: 33.333333%;
+  }
   .md\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .md\:items-center{
+    align-items: center;
   }
   .md\:justify-around{
     justify-content: space-around;
@@ -1968,11 +2002,23 @@ select{
   }
 }
 @media (min-width: 1024px){
+  .lg\:mb-0{
+    margin-bottom: 0px;
+  }
+  .lg\:mr-2{
+    margin-right: 0.5rem;
+  }
+  .lg\:flex{
+    display: flex;
+  }
   .lg\:w-1\/2{
     width: 50%;
   }
   .lg\:w-2\/3{
     width: 66.666667%;
+  }
+  .lg\:justify-around{
+    justify-content: space-around;
   }
   .lg\:px-8{
     padding-left: 2rem;
